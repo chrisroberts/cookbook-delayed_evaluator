@@ -6,6 +6,11 @@ Chef ticket is here:
 
 * http://tickets.opscode.com/browse/CHEF-1814
 
+## Update
+
+This feature will be a native feature in Chef 11. The naming has
+been updated from #delay_eval to #lazy.
+
 ## Example
 
 Below is an example recipe to demonstrate the usage.
@@ -26,10 +31,10 @@ file '/opt/test_no_delay' do
 end
 
 file '/opt/test_delay' do
-  content delay_eval{ node[:testbook][:test_content] }
+  content lazy{ node[:testbook][:test_content] }
 end
 ```
 
-Note that the evaluation block must be provided to the delay_eval
+Note that the evaluation block must be provided to the #lazy
 method. It simply generates a Chef::DelayedEvaluator instance to
 prevent conflicts where attributes are expecting a block.
