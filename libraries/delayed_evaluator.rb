@@ -4,7 +4,7 @@ unless(defined?(Chef::DelayedEvaluator))
 
   module DelayAllTheThings
 
-    def delay_eval(&block)
+    def lazy(&block)
       Chef::DelayedEvaluator.new(&block)
     end
 
